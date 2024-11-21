@@ -35,3 +35,12 @@ CREATE TABLE order_details (
     price INTEGER NOT NULL
 );
 
+CREATE TABLE banks (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    phone TEXT,
+    website TEXT,
+    city TEXT,
+    state VARCHAR(2),
+    address TEXT    
+);

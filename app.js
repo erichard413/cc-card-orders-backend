@@ -5,6 +5,7 @@ const { NotFoundError } = require("./expressError");
 const cors = require("cors");
 const morgan = require("morgan");
 const commonRoutes = require("./routes/common");
+const authRoutes = require("./routes/auth");
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(morgan("tiny"));
 
 //routes go here
 app.use("/", commonRoutes);
+app.use("/auth", authRoutes);
 
 //handle 404 errors
 app.use(function (req, res, next) {
