@@ -7,7 +7,8 @@ CREATE TABLE users (
         CHECK (position('@' IN email) > 1),
     join_date TEXT NOT NULL,
     is_admin BOOLEAN NOT NULL DEFAULT FALSE,
-    is_cc_admin BOOLEAN NOT NULL DEFAULT FALSE
+    is_cc_admin BOOLEAN NOT NULL DEFAULT FALSE,
+    bank INTEGER REFERENCES banks ON DELETE SET NULL
 );
 
 CREATE TABLE orders (

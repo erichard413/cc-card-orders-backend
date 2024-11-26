@@ -23,10 +23,19 @@
       "minLength": 1,
       "maxLength": 30
     },
-    "bank": {
-      "type": "integer"
+    "email": {
+      "type": "string",
+      "minLength": 6,
+      "maxLength": 60,
+      "format": "email"
+    },
+    "isAdmin": {
+      "type": "boolean"
+    },
+    "isCCAdmin": {
+      "type": "boolean"
     }
   },
   "additionalProperties": false,
-  "required": ["username", "firstName", "lastName", "password"]
+  "required": ["username", "firstName", "lastName", "password", "email"]
 }

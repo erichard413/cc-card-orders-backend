@@ -6,16 +6,20 @@ const cors = require("cors");
 const morgan = require("morgan");
 const commonRoutes = require("./routes/common");
 const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/users");
+const { authenticateJWT } = require("./middleware/auth");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny"));
+app.use(authenticateJWT);
 
 //routes go here
 app.use("/", commonRoutes);
 app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
 
 //handle 404 errors
 app.use(function (req, res, next) {
